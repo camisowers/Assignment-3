@@ -37,7 +37,8 @@ public:
 
 	// Definition of RingQueue<ItemType,MAX_SIZE>::iterator
 public:
-	class iterator {
+	class iterator 
+	{
 	private:
 		// A link to the parent container 
 		RingQueue* parent;
@@ -58,29 +59,41 @@ public:
 
 
 	public:
-		reference operator*() {
-			// Replace the line(s) below with your code.
-			return parent->buffer[0];
+		reference operator*()		//returns array location 
+		{
+			return parent->buffer((begin_index + offset) % ring_capacity);
+
+			//return parent->buffer[0];
 		}
 
-		iterator& operator++() {
-			// Replace the line(s) below with your code.
+		iterator& operator++() //increments offset
+		{
+			offset++;
 			return *this;
 		}
 
-		iterator operator++(int unused) {
-			// Replace the line(s) below with your code.
+		iterator operator++(int unused)		//increments offset by given int 
+		{
+			offset += unused;
 			return *this;
 		}
 
-		bool operator==(const iterator& rhs) const {
-			// Replace the line(s) below with your code.
-			return true;
+		bool operator==(const iterator& rhs) const		//compares values in 2 different ringqueues
+		{
+			if (parent == rhs->parent && offset == rhs->offset)
+				return true;
+			else
+				return false;
 		}
 
-		bool operator!=(const iterator& rhs) const {
-			// Replace the line(s) below with your code.
-			return true;
+		bool operator!=(const iterator& rhs) const		//compares values int 2 different ringqueues
+		{
+			if (parent != rhs->parent)
+				return true;
+			if (offset != rhs->offset)
+				return true;
+			else
+				false;
 		}
 
 	};
