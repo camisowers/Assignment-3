@@ -167,10 +167,26 @@ public:
 
 
 	// Mutators
-	void push_back(const ItemType& value) {
+	void push_back(const ItemType& value) 
+	{
+		if (ring_size < MAX_SIZE)
+		{
+			buffer[end_index] = value;
+			ring_size++;
+		}
+		else if (ring_size == MAX_SIZE)
+		{
+			buffer[end_index] = value;
+			begin_index++;
+		}
+		
 		return;
 	}
-	void pop_front() {
+
+	void pop_front() 
+	{
+		begin_index++;
+		ring_size--;
 		return;
 	}
 
