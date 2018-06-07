@@ -37,6 +37,7 @@ public:
 
 	// Definition of RingQueue<ItemType,MAX_SIZE>::iterator
 public:
+
 	class iterator 
 	{
 	private:
@@ -191,23 +192,30 @@ public:
 	}
 
 	// Functions that return iterators
-	iterator begin() {
-		// Replace the line(s) below with your code.
+	iterator begin() 
+	{
+		//replace code
 		return iterator(this, 0);
 	}
-	iterator end() {
+	iterator end()
+	{
 		// Replace the line(s) below with your code.
 		return iterator(this, 0);
 	}
 
 	// Miscellaneous functions
-	size_t size() const {
-		// Replace the line(s) below with your code.
-		return 0;
+	size_t size() const 
+	{
+		for (begin() != end()
+		{
+			size_t++;
+		}
+		return size_t;
 	}
 
 	// Debugging functions
-	void dump_queue() const {
+	void dump_queue() const 
+	{
 		std::cout << "Raw queue...\n";
 		for (size_t i = 0; i < MAX_SIZE; ++i)
 			std::cout << "Val: " << buffer[i] << ", at: " << buffer + i << '\n';
