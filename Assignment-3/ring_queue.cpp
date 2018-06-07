@@ -61,9 +61,7 @@ public:
 	public:
 		reference operator*()		//returns array location 
 		{
-			return parent->buffer((begin_index + offset) % ring_capacity);
-
-			//return parent->buffer[0];
+			return parent->buffer((begin_index + offset) % MAX_SIZE);
 		}
 
 		iterator& operator++() //increments offset
@@ -144,8 +142,8 @@ private:
 	// A helper function that computes the index of 'the end'
 	// of the RingQueue
 	int end_index() const {
-		// Replace the line(s) below with your code.
-		return begin_index;
+		int end_index = (begin_index + ring_size) % MAX_SIZE;
+		return end_index;
 	}
 
 
