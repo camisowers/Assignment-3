@@ -155,21 +155,13 @@ public:
 	// Accessors. Note: 'back()' is not considered part of the array.
 	ItemType front() const {
 		if (ring_size == 0) std::cerr << "Warning: Empty ring!\n";
-		// ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-		// Feel free to throw instead...
-
-
-		// Replace the line(s) below with your code.
-		return buffer[0];
+		else()
+			return buffer[begin_index];
 	}
 	ItemType back() const {
 		if (ring_size == 0) std::cerr << "Warning: Empty ring!\n";
-		// ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-		// Feel free to throw instead...
-
-
-		// Replace the line(s) below with your code.
-		return buffer[0];
+		else()
+			return buffer[end_index - 1];
 	}
 
 
