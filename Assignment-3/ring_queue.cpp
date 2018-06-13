@@ -62,7 +62,7 @@ public:
 	public:
 		reference operator*()		//returns array location 
 		{
-			return parent->buffer((begin_index + offset) % MAX_SIZE);
+			return parent->buffer[(begin_index + offset) % MAX_SIZE];
 		}
 
 		iterator& operator++() //increments offset
@@ -87,9 +87,9 @@ public:
 
 		bool operator!=(const iterator& rhs) const		//compares values int 2 different ringqueues
 		{
-			if (parent != rhs->parent)
+			if (parent != rhs.parent)
 				return true;
-			if (offset != rhs->offset)
+			if (offset != rhs.offset)
 				return true;
 			else
 				false;
@@ -194,19 +194,17 @@ public:
 	// Functions that return iterators
 	iterator begin() 
 	{
-		//replace code
-		return iterator(this, 0);
+		return iterator(this, begin_index + offset);
 	}
 	iterator end()
 	{
-		// Replace the line(s) below with your code.
-		return iterator(this, 0);
+		return iterator(this, begin_index + offeset);
 	}
 
 	// Miscellaneous functions
 	size_t size() const 
 	{
-		for (begin() != end()
+		for (begin() != end())
 		{
 			size_t++;
 		}
@@ -251,13 +249,13 @@ int main() {
 	// implementation of RingQueue<ItemType,int>::end(). 
 	// If the implementation is not correct, it might result in 
 	// an infinite loop.
-	/**
+	///**
 	std::cout << "Queue via iterators: \n";
 	for ( auto it = rq.begin() ; it != rq.end() ; ++it ) {
 	std::cout << "Value: " << *it << ", address: " << &(*it) << '\n';
 	}
 	std::cout << '\n';
-	*/
+	//*/
 
 
 
